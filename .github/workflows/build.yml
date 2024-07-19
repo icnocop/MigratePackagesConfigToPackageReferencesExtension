@@ -7,6 +7,12 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Publish extension to the Visual Studio Marketplace?'
+        required: true
+        default: 'false'
 
 jobs:
 
@@ -17,32 +23,97 @@ jobs:
         configuration: [Debug, Release]
 
     runs-on: windows-latest
-    # For a list of available runner types, refer to
-    # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+             # For a list of available runner types, refer to
+             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
       Solution_Name: .\src\MigratePackagesConfigToPackageReferences.sln
 
     steps:
-    # Checkout
+
+    - name: Set version number
+      run: |
+        $majorVersion = 1
+        $minorVersion = 0
+        $firstBuildYear = 2024
+        $currentDate = Get-Date
+        $currentDate = $currentDate.ToUniversalTime()
+        $currentYear = $currentDate.ToString("yyyy")
+        $buildYear = [Convert]::ToInt32($currentYear)
+        $currentMonthDay = $currentDate.ToString("MMdd")
+        $buildVersion = (($buildYear - $firstBuildYear) * 1200) + ([Convert]::ToInt32($currentMonthDay))
+        echo "VERSION=$majorVersion.$minorVersion.$buildVersion.${{ github.RUN_NUMBER }}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf-8 -Append
+
+    - name: Read environmental variables
+      run: |
+        echo VERSION=${{ env.VERSION }}
+        echo GITHUB_WORKSPACE=${{ github.WORKSPACE }}
+
     - name: Checkout
       uses: actions/checkout@v4
 
-    # Add MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Update vsixmanifest files
+      run: |
+        $files = Get-ChildItem "${{ github.WORKSPACE }}" -recurse -include "source.extension.vsixmanifest"
+        if (-not $files)
+        {
+            Write-Host "Didn't find any files to update."
+            exit 1
+        }
+        else
+        {
+            foreach ($file in $files) {
+                $xml = [xml](Get-Content($file))
+                attrib $file -r
+
+                $node = $xml.PackageManifest.Metadata.Identity
+                $node.Version = "${{ env.VERSION }}"
+
+                $xml.Save($file)
+                Write-Host "Version applied to '$file'"
+            }
+        }
+
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
+            # Adds MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
 
-    # Restore NuGet packages
-    - name: Restore
+    - name: Restore NuGet packages
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=${{matrix.Configuration}}
 
-    # Build
     - name: Build
       run: msbuild $env:Solution_Name /p:Configuration=${{matrix.Configuration}}
 
-    # Upload the VSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
+      # https://github.com/marketplace/actions/upload-a-build-artifact
       with:
         name: VSIX Package ${{matrix.Configuration}}
         path: .\src\MigratePackagesConfigToPackageReferencesExtension\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferencesExtension.vsix
+        if-no-files-found: error
+
+    - name: Publish to Open VSIX
+      if: ${{ matrix.Configuration == 'Release' && github.event.inputs.release != 'true' }}
+      run: |
+        [Reflection.Assembly]::LoadWithPartialName("System.Web") | Out-Null
+        $vsixFile = ".\src\MigratePackagesConfigToPackageReferencesExtension\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferencesExtension.vsix"
+        $url = "https://www.vsixgallery.com/api/upload"
+        [byte[]]$bytes = [System.IO.File]::ReadAllBytes($vsixFile)
+             
+        try {
+            $webclient = New-Object System.Net.WebClient
+            $webclient.UploadFile($url, $vsixFile) | Out-Null
+            'OK' | Write-Host -ForegroundColor Green
+        }
+        catch{
+            'FAIL' | Write-Error
+            $_.Exception.Response.Headers["x-error"] | Write-Error
+        }
+
+    - name: Publish extension to the Visual Studio Marketplace
+      if: ${{ matrix.Configuration == 'Release' && github.event.inputs.release == 'true' }}
+      uses: cezarypiatek/VsixPublisherAction@0.2
+      with:
+        extension-file: .\src\MigratePackagesConfigToPackageReferencesExtension\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferencesExtension.vsix
+        publish-manifest-file: publishManifest.json
+        personal-access-code: ${{ secrets.VS_PUBLISHER_ACCESS_TOKEN }}

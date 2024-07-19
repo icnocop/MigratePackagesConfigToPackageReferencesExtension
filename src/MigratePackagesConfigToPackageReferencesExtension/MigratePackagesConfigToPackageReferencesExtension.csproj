@@ -66,6 +66,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="publishManifest.json" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
       <Generator>VsixManifestGenerator</Generator>
