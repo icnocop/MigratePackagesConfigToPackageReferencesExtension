@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Defines the actual layout and type of the commands. -->
+
+  <!-- Include the IDs for all the commands exposed by VisualStudio. -->
+  <Extern href="stdidcmd.h"/>
+
+  <!-- Include the command ids for the menus provided by the shell. -->
+  <Extern href="vsshlids.h"/>
+
+  <!-- Include the image monikers for various images. -->
+  <Include href="KnownImageIds.vsct"/>
+  <Include href="VSGlobals.vsct"/>
+
+  <Commands package="guidMigratePackagesConfigToPackageReferencesExtension">
+        <Groups>
+            <Group guid="guidMigratePackagesConfigToPackageReferencesExtensionCmdSet" id="MigratePackagesConfigToPackageReferencesMenuGroup" priority="0x0600">
+                <Parent guid="VSMainMenu" id="ItemNode"/>
+            </Group>
+        </Groups>
+
+        <!--This section defines the elements the user can interact with, like a menu command or a button
+        or combo box in a toolbar. -->
+        <Buttons>
+            <Button guid="guidMigratePackagesConfigToPackageReferencesExtensionCmdSet" id="MigratePackagesConfigToPackageReferencesCommand" priority="0x0100" type="Button">
+                <Parent guid="guidMigratePackagesConfigToPackageReferencesExtensionCmdSet" id="MigratePackagesConfigToPackageReferencesMenuGroup" />
+                <Icon guid="ImageCatalogGuid" id="PackageReference" />
+                <CommandFlag>IconIsMoniker</CommandFlag>
+                <CommandFlag>DynamicVisibility</CommandFlag>
+                <Strings>
+                    <ButtonText>Migrate packages.config to PackageReferences...</ButtonText>
+                    <LocCanonicalName>.MigratePackagesConfigToPackageReferencesExtension.MigratePackagesConfigToPackageReferencesCommand</LocCanonicalName>
+                </Strings>
+            </Button>
+        </Buttons>
+    </Commands>
+
+    <VisibilityConstraints>
+        <VisibilityItem guid="guidMigratePackagesConfigToPackageReferencesExtensionCmdSet" id="MigratePackagesConfigToPackageReferencesCommand" context="guidMigratePackagesConfigToPackageReferencesExtensionUIRule" />
+    </VisibilityConstraints>
+
+  <Symbols>
+    <GuidSymbol name="guidMigratePackagesConfigToPackageReferencesExtension" value="{4b43db1a-e109-4fd4-83a9-4e41f8bb44b3}" />
+    <GuidSymbol name="guidMigratePackagesConfigToPackageReferencesExtensionCmdSet" value="{a1a90506-4ca0-4a18-a0f7-386e40eeffc2}">
+            <IDSymbol name="MigratePackagesConfigToPackageReferencesMenuGroup" value="0x0001" />
+            <IDSymbol name="MigratePackagesConfigToPackageReferencesCommand" value="0x0100" />
+    </GuidSymbol>
+    <GuidSymbol name="guidMigratePackagesConfigToPackageReferencesExtensionUIRule" value="{f2fbecb3-4a80-4a31-83aa-0e1fffcf8563}" />
+  </Symbols>
+</CommandTable>
