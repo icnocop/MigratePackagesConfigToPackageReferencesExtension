@@ -88,7 +88,7 @@ jobs:
       uses: actions/upload-artifact@v4
       # https://github.com/marketplace/actions/upload-a-build-artifact
       with:
-        name: VSIX Package ${{matrix.Configuration}}
+        name: MigratePackagesConfigToPackageReferencesExtension-${{ env.VERSION }} ${{matrix.Configuration}}
         path: .\src\MigratePackagesConfigToPackageReferencesExtension\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferencesExtension.vsix
         if-no-files-found: error
 
