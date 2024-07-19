@@ -95,6 +95,8 @@ namespace MigratePackagesConfigToPackageReferencesExtension.Commands
 
         private async Task MigratePackagesConfigAsync(SolutionItem packagesConfigItem)
         {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
             XNamespace defaultNamespace = "http://schemas.microsoft.com/developer/msbuild/2003";
             var packageReferences = new XElement(defaultNamespace + "ItemGroup");
             var packagesConfigPath = packagesConfigItem.FullPath;

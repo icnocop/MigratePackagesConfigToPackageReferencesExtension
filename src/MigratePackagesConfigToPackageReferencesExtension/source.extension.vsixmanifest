@@ -7,7 +7,7 @@
 		<MoreInfo>https://github.com/icnocop/MigratePackagesConfigToPackageReferencesExtension</MoreInfo>
 		<License>LICENSE</License>
 		<Icon>Resources\Icon.png</Icon>
-		<PreviewImage>Resources\Icon.png</PreviewImage>
+		<PreviewImage>Resources\Preview.png</PreviewImage>
 		<Tags>packages.config PackageReference NuGet vcxproj</Tags>
 	</Metadata>
 	<Installation>

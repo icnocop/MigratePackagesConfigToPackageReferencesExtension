@@ -8,6 +8,12 @@
   "identity": {
     "internalName": "MigratePackagesConfigToPackageReferencesExtension"
   },
+  "assetFiles": [
+    {
+      "pathOnDisk": "..\\..\\Preview.png",
+      "targetPath": "Preview.png"
+    }
+  ],
   "overview": "..\\..\\README.md",
   "priceCategory": "free",
   "publisher": "RamiAbughazaleh",
