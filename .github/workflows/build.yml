@@ -115,5 +115,5 @@ jobs:
       uses: cezarypiatek/VsixPublisherAction@1.1
       with:
         extension-file: .\src\MigratePackagesConfigToPackageReferencesExtension\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferencesExtension.vsix
-        publish-manifest-file: publishManifest.json
+        publish-manifest-file: .\src\MigratePackagesConfigToPackageReferencesExtension\publishManifest.json
         personal-access-code: ${{ secrets.VS_PUBLISHER_ACCESS_TOKEN }}
