@@ -4,6 +4,8 @@
 		<Identity Id="MigratePackagesConfigToPackageReferencesExtension.e81acbbb-7734-45b1-8852-73aa94df865c" Version="1.0" Language="en-US" Publisher="Rami Abughazaleh" />
 		<DisplayName>Migrate packages.config to PackageReferences</DisplayName>
 		<Description xml:space="preserve">Migrates packages.config to PackageReferences. Works with C# csproj and C++ vcxproj Visual Studio project files.</Description>
+		<MoreInfo>https://github.com/icnocop/MigratePackagesConfigToPackageReferencesExtension</MoreInfo>
+		<License>LICENSE</License>
 		<Icon>Resources\Icon.png</Icon>
 		<PreviewImage>Resources\Icon.png</PreviewImage>
 		<Tags>packages.config PackageReference NuGet vcxproj</Tags>
