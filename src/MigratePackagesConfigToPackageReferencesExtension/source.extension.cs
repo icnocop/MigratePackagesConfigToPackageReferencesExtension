@@ -13,6 +13,6 @@ namespace MigratePackagesConfigToPackageReferencesExtension
         public const string Language = "en-US";
         public const string Version = "1.0";
         public const string Author = "Rami Abughazaleh";
-        public const string Tags = "packages.config PackageReference NuGet C# csproj C++ vcxproj Visual Studio project";
+        public const string Tags = "packages.config PackageReference NuGet vcxproj";
     }
 }

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-    <Metadata>
-        <Identity Id="MigratePackagesConfigToPackageReferencesExtension.e81acbbb-7734-45b1-8852-73aa94df865c" Version="1.0" Language="en-US" Publisher="Rami Abughazaleh" />
-        <DisplayName>Migrate packages.config to PackageReferences</DisplayName>
-        <Description xml:space="preserve">Migrates packages.config to PackageReferences. Works with C# csproj and C++ vcxproj Visual Studio project files.</Description>
-        <Icon>Resources\Icon.png</Icon>
-        <PreviewImage>Resources\Icon.png</PreviewImage>
-        <Tags>packages.config PackageReference NuGet C# csproj C++ vcxproj Visual Studio project</Tags>
-    </Metadata>
-    <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
-            <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-    </Installation>
-    <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
-    </Prerequisites>
-    <Assets>
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-    </Assets>
+	<Metadata>
+		<Identity Id="MigratePackagesConfigToPackageReferencesExtension.e81acbbb-7734-45b1-8852-73aa94df865c" Version="1.0" Language="en-US" Publisher="Rami Abughazaleh" />
+		<DisplayName>Migrate packages.config to PackageReferences</DisplayName>
+		<Description xml:space="preserve">Migrates packages.config to PackageReferences. Works with C# csproj and C++ vcxproj Visual Studio project files.</Description>
+		<Icon>Resources\Icon.png</Icon>
+		<PreviewImage>Resources\Icon.png</PreviewImage>
+		<Tags>packages.config PackageReference NuGet vcxproj</Tags>
+	</Metadata>
+	<Installation>
+		<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+			<ProductArchitecture>amd64</ProductArchitecture>
+		</InstallationTarget>
+	</Installation>
+	<Prerequisites>
+		<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+	</Prerequisites>
+	<Assets>
+		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+	</Assets>
 </PackageManifest>
