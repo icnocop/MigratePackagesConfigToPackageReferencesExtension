@@ -8,7 +8,7 @@
   "identity": {
     "internalName": "MigratePackagesConfigToPackageReferencesExtension"
   },
-  "overview": "..\\README.md",
+  "overview": "..\\..\\README.md",
   "priceCategory": "free",
   "publisher": "RamiAbughazaleh",
   "private": false,
