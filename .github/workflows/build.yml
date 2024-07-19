@@ -112,7 +112,7 @@ jobs:
 
     - name: Publish extension to the Visual Studio Marketplace
       if: ${{ matrix.Configuration == 'Release' && github.event.inputs.release == 'true' }}
-      uses: cezarypiatek/VsixPublisherAction@0.2
+      uses: cezarypiatek/VsixPublisherAction@1.1
       with:
         extension-file: .\src\MigratePackagesConfigToPackageReferencesExtension\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferencesExtension.vsix
         publish-manifest-file: publishManifest.json
