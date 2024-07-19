@@ -42,7 +42,7 @@ jobs:
 
     # Upload the VSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: VSIX Package ${{matrix.Configuration}}
-        path: .\src\MigratePackagesConfigToPackageReferences\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferences.vsix
+        path: .\src\MigratePackagesConfigToPackageReferencesExtension\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferencesExtension.vsix
