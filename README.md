@@ -65,6 +65,9 @@ Check the `Migrate packages.config to PackageReferences Extension` pane in the `
 - [Microsoft C++ Dev Blog: Announcing NuGet PackageReference support for C++/CLI MSBuild projects targeting .NET Core and .NET 5 or higher](https://devblogs.microsoft.com/cppblog/announcing-nuget-packagereference-support-for-c-cli-msbuild-projects-targeting-net-core/)  
 - [Microsoft Learn Docs: Migrate from packages.config to PackageReference](https://learn.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference)  
 
+- [Software Meadows Blog Post: Revert PackageReference Project to Packages.config](https://www.softwaremeadows.com/posts/revert_packagereference_project_to_packages_config/)  
+- [StackOverflow Question: Switch back to packages.config](https://stackoverflow.com/q/45962998/90287)
+
 ## Rate and Review
 
 Has this extension helped you at all?
