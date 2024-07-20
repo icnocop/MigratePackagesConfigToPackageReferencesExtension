@@ -26,6 +26,10 @@ jobs:
              # For a list of available runner types, refer to
              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
+    permissions:
+      # Write access is required to publish artifacts as Github Releases
+      contents: write
+
     env:
       Solution_Name: .\src\MigratePackagesConfigToPackageReferences.sln
 
