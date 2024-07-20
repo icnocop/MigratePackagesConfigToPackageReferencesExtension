@@ -101,7 +101,7 @@ jobs:
         prerelease: false
         fail_on_unmatched_files: true
         files: |
-          src\MigratePackagesConfigToPackageReferencesExtension\bin\${{matrix.Configuration}}\MigratePackagesConfigToPackageReferencesExtension.vsix
+          ./src/MigratePackagesConfigToPackageReferencesExtension/bin/${{matrix.Configuration}}/MigratePackagesConfigToPackageReferencesExtension.vsix
 
     - name: Publish to Open VSIX
       if: ${{ matrix.Configuration == 'Release' && github.event.inputs.release == 'true' }}
