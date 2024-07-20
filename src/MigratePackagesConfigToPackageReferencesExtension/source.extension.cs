@@ -9,7 +9,7 @@ namespace MigratePackagesConfigToPackageReferencesExtension
     {
         public const string Id = "MigratePackagesConfigToPackageReferencesExtension.e81acbbb-7734-45b1-8852-73aa94df865c";
         public const string Name = "Migrate packages.config to PackageReferences";
-        public const string Description = @"Migrates packages.config to PackageReferences. Works with C# csproj and C++ vcxproj Visual Studio project files.";
+        public const string Description = @"Migrates packages.config to PackageReferences. Works with C# csproj and native C++ vcxproj Visual Studio project files.";
         public const string Language = "en-US";
         public const string Version = "1.0";
         public const string Author = "Rami Abughazaleh";

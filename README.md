@@ -2,7 +2,7 @@
 
 This Visual Studio extension migrates packages.config to PackageReferences.
 
-It works with C# csproj and C++ vcxproj Visual Studio project files.
+It works with C# csproj and native C++ vcxproj Visual Studio project files.
 
 [Download it from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=RamiAbughazaleh.MigratePackagesConfigToPackageReferencesExtension)
 
@@ -56,6 +56,14 @@ After the project file has been updated, `packages.config` will be deleted, and 
 
 Check the `Migrate packages.config to PackageReferences Extension` pane in the `Output Window` for detailed logs.
 
+## References
+
+- [Visual Studio Developer Community Feedback: Use PackageReference in vcxproj](https://developercommunity.visualstudio.com/t/Use-PackageReference-in-vcxproj/351636)  
+- [StackOverflow Question: PackageReference for NuGet packages in C++ projects](https://stackoverflow.com/q/50599104/90287)  
+- [Github dotnet project-system issue: Make the PackageReference support general purpose for all languages](https://github.com/dotnet/project-system/issues/2491)  
+- [Github Repo: Example C++ project that uses NuGet PackageReference (instead of packages.config)](https://github.com/japj/CppWithNuGetPackageReference)  
+- [Microsoft C++ Dev Blog: Announcing NuGet PackageReference support for C++/CLI MSBuild projects targeting .NET Core and .NET 5 or higher](https://devblogs.microsoft.com/cppblog/announcing-nuget-packagereference-support-for-c-cli-msbuild-projects-targeting-net-core/)  
+- [Microsoft Learn Docs: Migrate from packages.config to PackageReference](https://learn.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference)  
 
 ## Rate and Review
 
