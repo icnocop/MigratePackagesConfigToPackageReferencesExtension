@@ -98,9 +98,11 @@ jobs:
 
     - name: Publish GitHub Release
       if: ${{ matrix.Configuration == 'Release' && github.event.inputs.release == 'true' }}
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2.0.8
       with:
         name: v${{ env.VERSION }}
+        tag_name: v${{ env.VERSION }}
+        generate_release_notes: true
         draft: true
         prerelease: false
         fail_on_unmatched_files: true

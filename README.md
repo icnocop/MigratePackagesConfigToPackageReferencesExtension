@@ -8,8 +8,8 @@ It works with C# csproj and native C++ vcxproj Visual Studio project files.
 
 ## Getting started
 
-1. Install the extension
-2. Right-click on `packages.config` and select `Migrate packages.config to PackageReferences...`.
+1. Download and install the extension.  
+2. Right-click on `packages.config` and select `Migrate packages.config to PackageReferences...`.  
 
 ![Preview](Preview.png)
 
