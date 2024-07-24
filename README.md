@@ -67,6 +67,7 @@ Check the `Migrate packages.config to PackageReferences Extension` pane in the `
 
 - [Software Meadows Blog Post: Revert PackageReference Project to Packages.config](https://www.softwaremeadows.com/posts/revert_packagereference_project_to_packages_config/)  
 - [StackOverflow Question: Switch back to packages.config](https://stackoverflow.com/q/45962998/90287)
+- [Visual Studio 2017 Extension: NuGet PackageReference Upgrader](https://github.com/CloudNimble/PackageReferenceUpgrader)
 
 ## Rate and Review
 
