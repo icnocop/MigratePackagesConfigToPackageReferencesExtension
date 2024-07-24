@@ -5,6 +5,7 @@
 namespace MigratePackagesConfigToPackageReferencesExtension
 {
     using System;
+    using System.Reflection;
     using System.Runtime.InteropServices;
     using System.Threading;
     using Community.VisualStudio.Toolkit;
@@ -50,7 +51,7 @@ namespace MigratePackagesConfigToPackageReferencesExtension
                     serviceProvider.GetRequiredService<FileSystemService>()));
 
             // register commands
-            services.RegisterCommands(ServiceLifetime.Singleton);
+            services.RegisterCommands(ServiceLifetime.Singleton, Assembly.GetExecutingAssembly());
         }
 
         /// <inheritdoc/>
