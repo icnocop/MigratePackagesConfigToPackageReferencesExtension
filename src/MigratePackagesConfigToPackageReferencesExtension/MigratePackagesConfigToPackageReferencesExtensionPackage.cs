@@ -35,6 +35,8 @@ namespace MigratePackagesConfigToPackageReferencesExtension
         /// <inheritdoc/>
         protected override void InitializeServices(IServiceCollection services)
         {
+            base.InitializeServices(services);
+
             // register services
             services.AddSingleton<FileSystemService>();
 
