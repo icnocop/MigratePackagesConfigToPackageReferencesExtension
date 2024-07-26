@@ -8,7 +8,7 @@
         <License>LICENSE</License>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Preview.png</PreviewImage>
-        <Tags>packages.config PackageReference NuGet vcxproj</Tags>
+        <Tags>packages.config;PackageReference;NuGet;vcxproj</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
