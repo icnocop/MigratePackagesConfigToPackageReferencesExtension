@@ -69,6 +69,17 @@ Check the `Migrate packages.config to PackageReferences Extension` pane in the `
 - [StackOverflow Question: Switch back to packages.config](https://stackoverflow.com/q/45962998/90287)
 - [Visual Studio 2017 Extension: NuGet PackageReference Upgrader](https://github.com/CloudNimble/PackageReferenceUpgrader)
 
+## Why was this extension created? Visual Studio 2017 Version 15.7 and later has this feature already.
+
+The feature built-into Visual Studio 2017 Version 15.7 and later does not support native C++ projects.
+
+The following error appears:
+
+![image](https://github.com/user-attachments/assets/e740ec76-6cf8-405c-858e-1bc18cd833e6)
+
+> Project is not eligible for migration. Either the project is not packages.config based or doesn't support PackageReference yet. Visit https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference for more information.
+
+
 ## Rate and Review
 
 Has this extension helped you at all?
